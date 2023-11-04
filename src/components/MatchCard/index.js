@@ -11,7 +11,7 @@ const MatchCard = props => {
     result,
   } = recentDetails
   return (
-    <div className="match-card-cont">
+    <li className="match-card-cont">
       <img
         src={competingTeamLogo}
         alt={`competing team ${competingTeam}`}
@@ -19,9 +19,10 @@ const MatchCard = props => {
       />
       <p className="latest-first">{competingTeam}</p>
       <p className="latest-first first">{result}</p>
-      {matchStatus === 'Won' && <p style={{color: 'green'}}>{matchStatus}</p>}
-      {matchStatus === 'Lost' && <p style={{color: 'red'}}>{matchStatus}</p>}
-    </div>
+      <p style={{color: matchStatus === 'Won' ? 'green' : 'red'}}>
+        {matchStatus}
+      </p>
+    </li>
   )
 }
 export default MatchCard
